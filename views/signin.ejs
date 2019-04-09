@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Sign In page</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    </head>
+    <body>
+            <h1 id="sign-in">Sign In</h1>
+        <%if(msg&&msg.length>0){%>
+          <div id="showmsg"><%=msg%></div>  
+        <%}%>
+        <div id="formdiv">
+         <form action="/signin" method="POST">
+         <input type="email" name="username" id="username" placeholder="username" required><br>
+         <input type="password" name="password" id="password" placeholder="password" required><br>
+         <input type="submit" value="Sign In" id="submit">
+        </form>
+       <div id="forgotpassdiv"><a href="/forgotpass" id="forgotpass">Forgot password?</a></div> 
+       </div>  
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Sign Up page</title>
+        <script src="/check.js"></script>
+        <link rel="stylesheet" href="/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+        <h1 id="signup-title">Sign Up</h1>
+        <div id="formdiv">
+        <form action="/signup" method="POST" onsubmit="return check()">    
+         <input type="text" name="fname" id="firstname" placeholder="FirstName" required><br>
+         <input type="text" name="lname" id="lastname" placeholder="LastName" required><br>
+         <input type="email" name="uname" id="username" placeholder="username" required><br>
+         <input type="password" name="password" id="password" placeholder="password" required><br>
+         <input type="password" id="retype-password" placeholder="Retype password" required><br>
+        <input type="submit" value="Sign Up" id="submit">
+    </form>
+        </div>
+    </body>
+</html>

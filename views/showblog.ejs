@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>
+            Blogs page
+        </title>
+        <link rel="stylesheet" href="/style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    </head>
+    <body id="blog-body">
+        <nav id="navbar">
+            <div id="navbar-div">
+               <div id="site-name"> 
+                <a href="#" id="showname">Blog Site</a>
+               </div>
+              <%if(state==true){%> 
+               <div id="user-show">
+                 <a href="#"><img src="user1.png" id="user-img"></a>
+               </div>
+               <ul class="user-profile">
+                   <li id="top"><a href="/changepassword/<%=username%>">Change password</a></li>
+                   <li id="bottom"><a href="/signout">Sign Out</a></li>
+               </ul>
+               <%} else{%>
+                <div id="main-div">
+                <div id="nav-small">
+                <a href="#" id="nav-small-anchor"><img src="/navbar.png"></a>
+                </div>  
+                <div id="signin-div">  
+                <a href="/signin" id="signin-anchor">Sign In</a>
+                </div>
+                <div id="signup-div">
+                <a href="/signup" id="signup-anchor">Sign Up</a>
+                </div>
+                </div>
+               <%}%> 
+            </div>
+        </nav>
+        <ul class="user-activities">
+            <li id="top-activity"><a href="/signin">Sign In</a></li>
+            <li id="bottom-activity"><a href="/signup">Sign Up</a></li>
+        </ul>
+       <%if(state==true){%> 
+        <label>+ <a href="/new/blog/<%=username%>" id="create-blog">create a new blog</a></label>
+       <%}%>
+        <%for(var i=0;i<result.length;i++){%>  
+          <div id="blog-div">
+            <div id="blog-img-div"><img src="./uploads/<%=result[i].username%>/blog_<%=result[i].title%>/<%=result[i].photo_name%>" id="blog-img"></div>
+            <p><strong>Title</strong> - <%=result[i].title%></p>
+            <p><strong>Type</strong> - <%=result[i].type%></p>
+            <p id="content-para"><strong>Content</strong> - <%=result[i].content.substring(0,result[i].content.length/2)%>..<a href="/view/blog/<%=result[i].blog_ID%>" id="view-anchor">view more</a></p>
+            <p><strong>Created</strong> - <%=result[i].created%></p>
+           <%if(state==true){%>
+           <%if(username==result[i].username){%>  
+            <div id="edit-blog">
+            <a href="/edit/blog/<%=result[i].username%>/<%=result[i].blog_ID%>" >Edit</a>
+            </div>
+            <div id="delete-blog">
+            <form action="/delete/blog/<%=result[i].username%>/<%=result[i].blog_ID%>?_method=DELETE" method="POST">
+             <input type="submit" value="Delete" id="delete-blog-sub">  
+            </form>
+          </div>
+          <%}%>
+          <%}%>
+          </div>
+          <%}%>
+        <%if(state==true){%>       
+        <script src="/style.js"></script>
+        <%} else {%>
+        <script src="small.js"></script> 
+        <%}%>
+    </body>
+</html>

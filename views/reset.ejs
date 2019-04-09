@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>
+            Change password
+        </title>
+        <link rel="stylesheet" href="/style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <script src="/check.js"></script>
+    </head>
+    <body>
+        <div id="formdiv">
+            <form action="/resetpass/<%=username%>?_method=PUT" method="POST" onsubmit="return check()">    
+                <input type="password" name="password" id="password" placeholder="New password" required><br>
+                <input type="password" id="retype-password" placeholder="Retype password" required><br>
+               <input type="submit" value="Reset password" id="submit">
+           </form>
+        </div>
+    </body>
+</html>

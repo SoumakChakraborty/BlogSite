@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>
+            Blog detail
+        </title>
+        <link rel="stylesheet" href="/style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>
+        <div id="blog-detail">
+        <div id="blog-detail-img-div">
+            <img src="/uploads/<%=result[0].username%>/blog_<%=result[0].title%>/<%=result[0].photo_name%>" id="blog-detail-img">
+            <p><strong>Name</strong></p>
+            <p><%=result[0].title%></p>
+            <p><strong>Type</strong></p>
+            <p><%=result[0].type%></p>
+            <p><strong>Content</strong></p>
+            <p><%=result[0].content%></p>
+            <p><strong>By</strong> - <%=result[0].fname+" "+(result[0].lname)%></p>
+        </div>
+        </div>
+    </body>
+</html>

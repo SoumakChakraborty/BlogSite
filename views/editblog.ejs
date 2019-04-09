@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>
+            Edit Blog
+        </title>
+        <link rel="stylesheet" href="/style.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=false">
+        <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">    
+    </head>
+    <body id="create-blog-body">
+        <h1 id="create-title">Edit blog</h1>
+        <div id="formdiv1">
+          <form action="/edit/blog/<%=result[0].username%>/<%=result[0].blog_ID%>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <input type="text" name="blogtitle" id="blog-title" value="<%=result[0].title%>"><br>
+            <select name="type" id="blog-type">   
+             <option value="Travel" class="opt">Travel</option>
+             <option value="Sports" class="opt">Sports</option>
+             <option value="Food" class="opt">Food</option>
+             <option value="Technology" class="opt">Technology</option>   
+            </select><br>
+            <input type="file" id="blog-photo" name="file"><br>
+            <textarea id="blog-description" name="description"><%=result[0].content%></textarea>
+            <input type="submit" value="Update" id="blog-submit">
+        </form>  
+        </div>
+    </body>
+</html>
